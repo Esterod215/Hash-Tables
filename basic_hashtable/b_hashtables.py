@@ -17,7 +17,7 @@ class BasicHashTable:
     def __init__(self, capacity):
         self.capacity = capacity
         self.count = 0
-        
+        self.elements = [None] * capacity
 
 
 # '''
