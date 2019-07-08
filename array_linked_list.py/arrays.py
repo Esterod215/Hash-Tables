@@ -2,22 +2,38 @@
 
 # Do not use any of the built in array functions for this exercise
 class array:
-    def __init__(self):
+    def __init__(self,capacity):
         # Your code here
-        pass
+        self.capacity = capacity
+        self.count = 0 #this is the actual size being used in the array
+        self.elements = [None] * capacity #create a bunch of empty buckets (empty cells used to mimic memory)
+        
 
 
 # Double the size of the given array
-def resize_array():
+def resize_array(array):
     # Your code here
-    pass
+    new_capacity = array.capacity
+    new_elements = [None] * new_capacity
+   
+    #copy over elements
+    for i in range(array.count):
+        new_elements[i] = array.elements[i]
+    
+    array.elements = new_elements
+    array.capacity = new_capacity
+    
 
 
 # Return an element of a given array at a given index
-def array_read():
+def array_read(array, index):
     # Throw an error if array is out of the current count
-    # Your code here
-    pass
+    if index >= array.count:
+        print('error out of bounds')
+        return None
+    else:
+        return array.elements[index]
+    
 
 
 # Insert an element in a given array at a given index
